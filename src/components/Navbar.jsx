@@ -6,10 +6,10 @@ function Navbar() {
     <div className="grid grid-cols-3">
         <div className=" text-4xl font-link text-gray-300 mt-20 ml-20 row-span-3">
             <div className='transition ease-in-out py-5 px-10 hover:text-purple-500'>
-            <Link to="/Login">SINGLEPLAYER</Link>
+            <Link to="/Signup">SINGLEPLAYER</Link>
             </div>
             <div className='py-5 px-10 transition ease-in-out hover:text-purple-500'>
-            <Link to="/singleplayer">MULTIPLAYER</Link>
+            <Link to="/Login">MULTIPLAYER</Link>
             </div>
             <div className='py-5 px-10 transition ease-in-out hover:text-purple-500'>
             <Link to="/singleplayer">CLASSIC MAPS</Link>
