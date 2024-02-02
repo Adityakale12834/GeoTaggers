@@ -1,14 +1,18 @@
 const express = require("express");
-const { connectToMongoDB } = require("./connect");
+const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 const app = express();
-const PORT = 8080;
+const router = require("./routes/user-routes");
+const PORT = 5000;
 
-const maps = require("./routes/mapRoute");
+app.use(cookieParser());
+app.use(express.json());
+app.use('/api',router);
 
-connectToMongoDB(process.env.MONGODB ?? "mongodb://127.0.0.1:27017/geotaggers")
-.then(() => console.log("Database connected"))
-.catch(() => console.log("Database connection failed"));
-
-app.use('/maps', maps);
-
-app.listen(PORT, () => console.log(`Server started at Port : ${PORT}`));
+mongoose.connect("mongodb+srv://vrushalikale9765:q5sMrGHW1A2IlHHq@cluster0.gdyanht.mongodb.net/auth?retryWrites=true&w=majority")
+.then(() => {
+    app.listen(PORT, () => console.log(`Server & Database Connected at PORT ${PORT}`));
+    //vrushalikale9765
+    //q5sMrGHW1A2IlHHq
+})
+.catch((err) => console.log(err));
