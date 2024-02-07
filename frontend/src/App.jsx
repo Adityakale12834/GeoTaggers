@@ -3,6 +3,10 @@ import Navbar from './components/Navbar';
 import { Routes, Route } from 'react-router-dom';
 import FetchApi from './components/fetchApi';
 import Login from './components/Login';
+import Signup from './components/Signup';
+import Quizz from './components/Quizz';
+
+
 import PlayerInfo from './components/PlayerInfo';
 
 function App() {
@@ -11,9 +15,11 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Navbar />} />
-        <Route path="/singleplayer" element={<FetchApi/>} />      
-        <Route path="/Login" element={< Login/>} />
-        <Route path="/profile" element={<PlayerInfo/>} />
+        <Route path="/singleplayer" element={<FetchApi />} />
+        <Route path="/Login" element={< Login />} />
+        <Route path="/Signup" element={< Signup />} />
+        <Route path="/Quizz" element={< Quizz />} />
+        <Route path="/profile" element={<PlayerInfo />} />
       </Routes>
     </>
   )
