@@ -64,7 +64,7 @@ function QuizChallenge() {
               <h2 className="text-lg font-semibold mb-2">{quizData[currentQuestion].question}</h2>
               <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                 {quizData[currentQuestion].options.map((option, index) => (
-                  <label key={index} class="flex items-center mb-4  hover:bg-gray-200  hover:border  dark:hover:bg-gray-700 rounded-lg p-2">
+                  <label key={index} class="flex items-center mb-4  border  rounded-lg p-2">
                     <input
                       type="radio"
                       value={option}
