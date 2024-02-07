@@ -5,6 +5,8 @@ import FetchApi from './components/fetchApi';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import PlayerInfo from './components/PlayerInfo';
+import Quizz from './components/Quizz';
+
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
         <Route path="/Login" element={< Login/>} />
         <Route path="/Signup" element={< Signup/>} />
         <Route path="/profile" element={<PlayerInfo/>} />
+        <Route path="/Quizz" element={< Quizz/>} />
+
       </Routes>
     </>
   )

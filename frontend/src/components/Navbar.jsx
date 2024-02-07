@@ -19,8 +19,8 @@ function Navbar() {
             <Link to="/Signup">CLASSIC MAPS</Link>
             </div>
             <hr className="w-80 border-1 py-3"/>
-            <div className='py-5 px-10 transition ease-in-out hover:text-purple-500'>
-            <Link to="/profile">QUIZZ</Link>
+            <div className='py-5  px-10 transition ease-in-out hover:text-purple-500'>
+            <Link to="/Quizz">QUIZZ</Link>
             </div>
             
             <div className='py-5 px-10 transition ease-in-out hover:text-purple-500'>
