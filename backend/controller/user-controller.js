@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const secretkey = "Adityakale"; 
 async function signup(req,res,next){
-    const {name,email,password} = req.body;
+    const {email,username,password} = req.body;
     let result;
     try {
        result = await User.findOne({email : email}); 
@@ -16,8 +16,8 @@ async function signup(req,res,next){
     }
     const hashedpass = bcrypt.hashSync(password);
     const user = new User({
-        name ,
         email,
+        username,
         password : hashedpass,
     });
     try {
@@ -51,10 +51,8 @@ const login = async (req,res,next) => {
         httpOnly : true,
         sameSite : 'lax',
     });
-
     return res.status(200).json({message : "Successfully LoggedIn", user : existinguser, token : token});
 }
-
 const verifyToken = (req,res,next) => {
     const cookies = req.headers.cookie;
     const token = cookies.split("=")[1];
