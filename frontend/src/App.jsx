@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Quizz from './components/Quizz';
 import PlayerInfo from './components/PlayerInfo';
+import SignIn from './components/SignIn';
 
 function App() {
 

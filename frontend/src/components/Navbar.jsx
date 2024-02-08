@@ -22,9 +22,11 @@ function Navbar() {
             <div className='py-5 px-10 transition ease-in-out hover:text-purple-500'>
             <Link to="/Quizz">QUIZZ</Link>
             </div>
-            
             <div className='py-5 px-10 transition ease-in-out hover:text-purple-500'>
             <Link to="/profile">PROFILE</Link>
+            </div>
+            <div className='py-5 px-10 transition ease-in-out hover:text-purple-500'>
+            <Link to="/signin">SignIn</Link>
             </div>
         </div>
         <Outlet/>
