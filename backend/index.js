@@ -5,12 +5,13 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 const router = require("./routes/user-routes");
+const maps = require("./routes/maps-routes");
 const PORT = 5000;
-
 
 app.use(cookieParser());
 app.use(express.json());
 app.use('/api',router);
+app.use('/maps',maps);
 
 mongoose.connect("mongodb+srv://vrushalikale9765:q5sMrGHW1A2IlHHq@cluster0.gdyanht.mongodb.net/auth?retryWrites=true&w=majority")
 .then(() => {
