@@ -12,7 +12,6 @@ app.use(cookieParser());
 app.use(express.json());
 app.use('/api',router);
 app.use('/maps',maps);
-
 mongoose.connect("mongodb+srv://vrushalikale9765:q5sMrGHW1A2IlHHq@cluster0.gdyanht.mongodb.net/auth?retryWrites=true&w=majority")
 .then(() => {
     app.listen(PORT, () => console.log(`Server & Database Connected at PORT ${PORT}`));
