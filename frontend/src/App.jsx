@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<Navbar />} />
         <Route path="/singleplayer" element={<FetchApi />} />
         <Route path="/Login" element={< Login />} />
-        <Route path="/Signup" element={< Signup />} />
+        <Route path="/Signin" element={< SignIn />} />
         <Route path="/Quizz" element={< Quizz />} />
         <Route path="/profile" element={<PlayerInfo />} />
       </Routes>

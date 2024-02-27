@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^2.1.0",
+    "@reduxjs/toolkit": "^2.2.1",
     "@vis.gl/react-google-maps": "^0.5.4",
     "axios": "^1.6.7",
     "cors": "^2.8.5",
