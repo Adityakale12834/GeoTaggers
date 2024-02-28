@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^2.1.0",
+    "@reduxjs/toolkit": "^2.2.1",
     "@vis.gl/react-google-maps": "^0.5.4",
     "axios": "^1.6.7",
     "cors": "^2.8.5",
@@ -30,6 +30,6 @@
     "postcss": "^8.4.33",
     "react-router-dom": "^6.21.3",
     "tailwindcss": "^3.4.1",
-    "vite": "^5.0.8"
+    "vite": "^5.0.12"
   }
 }
