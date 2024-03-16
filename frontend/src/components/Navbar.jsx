@@ -13,7 +13,7 @@ function Navbar() {
             <Link to="/Signup" onClick={dispatch(fetchStreetViewData())}>SINGLEPLAYER</Link>
             </div>
             <div className='py-5 px-10 transition ease-in-out hover:text-purple-500'>
-            <Link to="/singleplayer">MULTIPLAYER</Link>
+            <Link to="/Headbar">MULTIPLAYER</Link>
             </div>
             <div className='py-5 px-10 transition ease-in-out hover:text-purple-500'>
             <Link to="/singleplayer">CLASSIC MAPS</Link>
@@ -23,10 +23,10 @@ function Navbar() {
             <Link to="/Quizz">QUIZZ</Link>
             </div>
             <div className='py-5 px-10 transition ease-in-out hover:text-purple-500'>
-            <Link to="/profile">PROFILE</Link>
+            <Link to="/Playerinfo">PROFILE</Link>
             </div>
             <div className='py-5 px-10 transition ease-in-out hover:text-purple-500'>
-            <Link to="/signin">SignIn</Link>
+            <Link to="/SignIn">SignIn</Link>
             </div>
         </div>
         <Outlet/>
