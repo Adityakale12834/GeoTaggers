@@ -2,6 +2,9 @@ import { Link, Outlet } from "react-router-dom"
 import { useDispatch } from "react-redux";
 import Card from "./Card";
 import { fetchStreetViewData } from "../redux/slices/streetviewSlice";
+// import Headbar from "./Headbar";
+
+
 
 function Navbar() {
     const dispatch = useDispatch();
@@ -36,6 +39,9 @@ function Navbar() {
             <Card/>
             <Card/>
         </div>
+        {/* <div  className="fixed top-0 w-full z-50">
+          <Headbar/>
+        </div> */}
     </div>
   )
 }
