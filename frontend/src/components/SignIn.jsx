@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState} from "react"
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 const SignIn = () => {
@@ -15,6 +15,7 @@ const SignIn = () => {
         }));
         console.log(e.target.name,"Value",e.target.value);
     }
+
     const sendRequest = async () => {
         const res = axios.post("http://localhost:5000/api/signup/",{
             email : inputs.email,
@@ -22,8 +23,21 @@ const SignIn = () => {
             password : inputs.password,
         }).catch(err => console.log(err));
         const data = await res.data;
+        getPlayerStats().then(()=> console.log("Player profile is created"));
         return data;
     }
+
+      const getPlayerStats = async () => {
+          try {
+            const res = await axios.post("http://localhost:5000/player/set/",{
+              username : inputs.username,
+            });
+            console.log(res);
+          } catch (err) {
+            console.error("Error fetching player stats:", err);
+          }
+        }
+
     const handleSubmit = (e) =>{
         e.preventDefault();
         sendRequest().then(() => history("/login"));

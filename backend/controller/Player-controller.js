@@ -3,12 +3,12 @@ const User = require("../Models/user")
 
 async function getUserInfo(req,res) {
     try {
-        const _id = req.body;
-        console.log(_id);
+        const _id = req.params._id;
+        console.log("this is id from frontend",_id);
         const result = await Player.findOne(
             { userInfo : _id,}
         )
-        console.log(result);
+        console.log("user info is",result);
         return res.status(200).json( {message : result });
     } catch (error) {
         res.status(503).json({message : "you are asshole"});

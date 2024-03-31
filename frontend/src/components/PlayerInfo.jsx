@@ -4,9 +4,9 @@ axios.defaults.withCredentials = true;
 
 function PlayerInfo() {
     const [user, setUser] = useState("");
-  const [player, setPlayer] = useState("");
+    const [player, setPlayer] = useState("");
 
-  // Fetch user information on component mount
+
   useEffect(() => {
     const getUserInfo = async () => {
       try {
@@ -14,7 +14,7 @@ function PlayerInfo() {
           withCredentials: true, // Include credentials for authenticated requests
         });
         const data = await res.data;
-        console.log(data);
+        console.log("this is user info",data);
         setUser(data.user);
       } catch (err) {
         console.error("Error fetching user info:", err);
@@ -22,23 +22,20 @@ function PlayerInfo() {
     };
 
     getUserInfo();
-  }, []); // Empty dependency array to run effect only on mount
+  }, []); 
 
-  // Fetch player stats only when user data (including user._id) is available
+
   useEffect(() => {
     const getPlayerStats = async () => {
-      if (!user._id) { // Check if user ID exists before making the API call
-        return; // Exit if user ID is not yet available
+      if (!user._id) { 
+        return; 
       }
 
       try {
         const res = await axios({
-            method: 'get',
-            url: 'http://localhost:5000/player/',
-            data: {
-              _id : user._id,
-            }
-          });
+          method: 'get',
+          url: `http://localhost:5000/player/${user._id}` // Assuming ID goes in URL path
+      });
         setPlayer(res);
         console.log(res);
       } catch (err) {
@@ -64,8 +61,8 @@ function PlayerInfo() {
                         <p className="text-sm font-bold"></p>
                         <h1 className="text-3xl font-bold">{user.username}</h1>
                         <div className="py-8">
-                        <label className="text-xl p-5">LVL 3</label>
-                        <progress id="file" value="32" max="100" className=""> 32% </progress>
+                        <label className="text-xl p-5">level</label>
+                        <progress id="file" value="32" max="100" className=""></progress>
                         </div>
                     </div>
                     <hr className="w-96 h-1 my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"/>
@@ -79,7 +76,7 @@ function PlayerInfo() {
                         <div className="my-10 p-10 bg-gray-700 flex justify-center mx-20">
                             <div>
                                 <div className="flex justify-center">
-                                <h1>6</h1>
+                                <h1>{player.data.message.TotalGames}</h1>
                                 </div>
                             <h2>completed games</h2>
                             </div>
