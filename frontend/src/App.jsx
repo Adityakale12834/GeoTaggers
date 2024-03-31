@@ -13,12 +13,12 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Navbar />} />
+        <Route path="/home" element={<Navbar />} />
         <Route path="/singleplayer" element={<FetchApi />} />
         <Route path="/Login" element={< Login />} />
-        <Route path="/Signin" element={< SignIn />} />
+        <Route path="/" element={< SignIn />} />
         <Route path="/Quizz" element={< Quizz />} />
-        <Route path="/profile" element={<PlayerInfo />} />
+        <Route path="/profile" element={<PlayerInfo username="" />} />
       </Routes>
     </>
   )

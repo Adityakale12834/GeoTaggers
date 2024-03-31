@@ -1,5 +1,4 @@
 
-
 export default function Card() {
   return (
     <div className='w-72 h-96  rounded-lg bg-gray-900 text-zinc-100 overflow-hidden mx-5 border border-gray-600 shadow-2xl '>
