@@ -1,5 +1,6 @@
 import './App.css'
 import Navbar from './components/Navbar';
+import Headbar from './components/Headbar';
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import FetchApi from './components/fetchApi';
@@ -11,6 +12,8 @@ import SignIn from './components/SignIn';
 axios.defaults.withCredentials = true;
 let firstRender = true;
 import axios from "axios";
+
+
 
 function App() {
   const [user, setUser] = useState("");

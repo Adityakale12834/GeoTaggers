@@ -4,7 +4,7 @@ import axios from "axios";
 import { useDispatch,useSelector } from "react-redux";
 import { authActions } from "../redux/store";
 import { Link } from "react-router-dom";
-export default function Login() {
+export function Login() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
   const history = useNavigate();
@@ -76,5 +76,6 @@ export default function Login() {
         </div>
       </section>
     )
-  }
-  
+}
+
+export default Login;
