@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const {getUserInfo,setProfileofUser} = require("../controller/Player-controller");
+const {getUserInfo,setProfileofUser,updatePlayerInfo} = require("../controller/Player-controller");
 
-router.get("/", getUserInfo);
+router.get("/:_id", getUserInfo);
 router.post("/set",setProfileofUser);
-
+router.patch("/update/:_id",updatePlayerInfo);
 module.exports = router;

@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { useDispatch,useSelector } from "react-redux";
+import { authActions } from "../redux/store";
+import { Link } from "react-router-dom";
 export default function Login() {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
   const history = useNavigate();
     const [inputs , setInputs] = useState({
         email : "",
@@ -25,9 +29,8 @@ export default function Login() {
     }
     const handleSubmit = (e) =>{
         e.preventDefault();
-        sendRequest().then(() =>{
-             history("../home");
-            });
+        sendRequest().then(() => dispatch(authActions.login()))
+                    .then(() =>history("../home"));
     }
 
     return (
@@ -62,9 +65,10 @@ export default function Login() {
                   </div>
                   <a href="#" className="text-sm font-medium text-white hover:underline dark:text-primary-500">Forgot password?</a>
                 </div>
+                {console.log(isLoggedIn)}
                 <button type="submit" className=" btn-primary w-full text-white bg-indigo-500 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Dont have an account? <a href="#" className="font-medium text-white hover:underline dark:text-primary-500">Signin</a>
+                  Dont have an account? <Link to="/" className="font-medium text-white hover:underline dark:text-primary-500">SignIn</Link>
                 </p>
               </form>
             </div>

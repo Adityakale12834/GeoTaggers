@@ -2,51 +2,21 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 axios.defaults.withCredentials = true;
 
-function PlayerInfo() {
+function PlayerInfo(props) {
     const [user, setUser] = useState("");
-  const [player, setPlayer] = useState("");
-
-  // Fetch user information on component mount
-  useEffect(() => {
-    const getUserInfo = async () => {
+    const getPlayerInfo = async() => {
       try {
-        const res = await axios.get("http://localhost:5000/api/user", {
-          withCredentials: true, // Include credentials for authenticated requests
-        });
-        const data = await res.data;
-        console.log(data);
-        setUser(data.user);
-      } catch (err) {
-        console.error("Error fetching user info:", err);
+        const response = await axios.get(`http://localhost:5000/player/${props.username._id}`).catch(err => console.log(err));;
+        const data = await response.data;
+        return data;
+      } catch (error) {
+        console.log(error);
       }
-    };
+    }
+    useEffect(() => {
+      getPlayerInfo().then((data) => setUser(data))
+    },[]);
 
-    getUserInfo();
-  }, []); // Empty dependency array to run effect only on mount
-
-  // Fetch player stats only when user data (including user._id) is available
-  useEffect(() => {
-    const getPlayerStats = async () => {
-      if (!user._id) { // Check if user ID exists before making the API call
-        return; // Exit if user ID is not yet available
-      }
-
-      try {
-        const res = await axios({
-            method: 'get',
-            url: 'http://localhost:5000/player/',
-            data: {
-              _id : user._id,
-            }
-          });
-        setPlayer(res);
-        console.log(res);
-      } catch (err) {
-        console.error("Error fetching player stats:", err);
-      }
-    };
-    getPlayerStats();
-  }, [user]);
     return (
         <>
         <div className="">
@@ -62,11 +32,12 @@ function PlayerInfo() {
                 <div className="col-span-3 h-4/6 row-span-6 mt-24 font-link pl-6 text-gray-200">
                     <div>
                         <p className="text-sm font-bold"></p>
-                        <h1 className="text-3xl font-bold">{user.username}</h1>
+                        <h1 className="text-3xl font-bold">{props.username.username}</h1>
                         <div className="py-8">
                         <label className="text-xl p-5">LVL 3</label>
-                        <progress id="file" value="32" max="100" className=""> 32% </progress>
+                        <progress id="file" value="60" max="100" className=""> 50% </progress>
                         </div>
+                        <h1 className="">XP </h1>
                     </div>
                     <hr className="w-96 h-1 my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"/>
                 </div>

@@ -22,12 +22,25 @@ const SignIn = () => {
             password : inputs.password,
         }).catch(err => console.log(err));
         const data = await res.data;
+        console.log(data);
         return data;
+    }
+
+    const makeProfile = async(data) => {
+      const res = axios.post("http://localhost:5000/player/set/", {
+        username : data.username,
+      }).catch(() => console.log("error in Making Profile"));
+      console.log("user Info is",res);
+      return res;
     }
     const handleSubmit = (e) =>{
         e.preventDefault();
-        sendRequest().then(() => history("/login"));
+        sendRequest().then((data) => {
+          makeProfile(data);
+          history("/login")
+        });
     }
+
   return (
     <section className=" bg-gradient-to-b from-indigo-950 to-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 ">
