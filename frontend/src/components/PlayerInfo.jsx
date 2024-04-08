@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 axios.defaults.withCredentials = true;
 
-function PlayerInfo() {
+function PlayerInfo(props) {
     const [user, setUser] = useState("");
     const [player, setPlayer] = useState("");
 
@@ -65,9 +65,10 @@ function PlayerInfo() {
                         <progress id="file" value="32" max="100" className=""></progress>
                         </div>
                     </div>
-                    <hr className="w-96 h-1 my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"/>
                 </div>
+                <hr className="w-96 h-1 my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"/>
             </div>
+
             <hr className=" my-3 mx-28 bg-gray-100 border rounded md:my-10 dark:bg-gray-600"/>
             <div className="flex justify-center">
                 <div className="uppercase text-gray-200 font-link">
@@ -79,61 +80,61 @@ function PlayerInfo() {
                                 <h1>{player.data.message.TotalGames}</h1>
                                 </div>
                             <h2>completed games</h2>
-                            </div>
-                        </div>
-                        <div className="my-10 p-10 bg-gray-700 flex justify-center mx-20">
-                            <div>
-                                <div className="flex justify-center">
-                                <h1>6</h1>
-                                </div>
-                            <h2>completed games</h2>
-                            </div>
-                        </div>
-                        <div className="my-10 p-10 bg-gray-700 flex justify-center mx-20">
-                            <div>
-                                <div className="flex justify-center">
-                                <h1>6</h1>
-                                </div>
-                            <h2>completed games</h2>
-                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div className="flex justify-center">
-                <div className="uppercase text-gray-200 font-link">
-                <h1 className="text-4xl font-link ml-96 pl-24">Statistics</h1>
-                    <div className="flex justify-center">
-                        <div className="my-10 p-10 bg-gray-700 flex justify-center mx-20">
-                            <div>
-                                <div className="flex justify-center">
-                                <h1>6</h1>
-                                </div>
-                            <h2>completed games</h2>
+                    <div className="my-10 p-10 bg-gray-700 flex justify-center mx-20">
+                        <div>
+                            <div className="flex justify-center">
+                            <h1>6</h1>
                             </div>
+                        <h2>completed games</h2>
                         </div>
-                        <div className="my-10 p-10 bg-gray-700 flex justify-center mx-20">
-                            <div>
-                                <div className="flex justify-center">
-                                <h1>6</h1>
-                                </div>
-                            <h2>completed games</h2>
+                    </div>
+                    <div className="my-10 p-10 bg-gray-700 flex justify-center mx-20">
+                        <div>
+                            <div className="flex justify-center">
+                            <h1>6</h1>
                             </div>
-                        </div>
-                        <div className="my-10 p-10 bg-gray-700 flex justify-center mx-20">
-                            <div>
-                                <div className="flex justify-center">
-                                <h1>6</h1>
-                                </div>
-                            <h2>completed games</h2>
-                            </div>
+                        <h2>completed games</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        </>
-      )
+        <div className="flex justify-center">
+            <div className="uppercase text-gray-200 font-link">
+            <h1 className="text-4xl font-link ml-96 pl-24">Statistics</h1>
+                <div className="flex justify-center">
+                    <div className="my-10 p-10 bg-gray-700 flex justify-center mx-20">
+                        <div>
+                            <div className="flex justify-center">
+                            <h1>6</h1>
+                            </div>
+                        <h2>completed games</h2>
+                        </div>
+                    </div>
+                    <div className="my-10 p-10 bg-gray-700 flex justify-center mx-20">
+                        <div>
+                            <div className="flex justify-center">
+                            <h1>6</h1>
+                            </div>
+                        <h2>completed games</h2>
+                        </div>
+                    </div>
+                    <div className="my-10 p-10 bg-gray-700 flex justify-center mx-20">
+                        <div>
+                            <div className="flex justify-center">
+                            <h1>6</h1>
+                            </div>
+                        <h2>completed games</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </>
+  )
 }
 
 export default PlayerInfo

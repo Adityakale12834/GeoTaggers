@@ -26,6 +26,21 @@ const playerSchema = new mongoose.Schema({
         default : 0,
         required : true,
     },
+    XP : {
+        type : Number,
+        default : 0,
+        required : true,
+    },
+    accuracy : {
+        type : Number,
+        default : 0,
+        required : true,
+    },
+    XPcapacity : {
+        type : Number,
+        default : 2000,
+        required : true,
+    }
 })
 
 const profileModel = mongoose.model("Profile",playerSchema);

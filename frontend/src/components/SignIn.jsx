@@ -37,11 +37,14 @@ const SignIn = () => {
             console.error("Error fetching player stats:", err);
           }
         }
-
     const handleSubmit = (e) =>{
         e.preventDefault();
-        sendRequest().then(() => history("/login"));
+        sendRequest().then((data) => {
+          makeProfile(data);
+          history("/login")
+        });
     }
+
   return (
     <section className=" bg-gradient-to-b from-indigo-950 to-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 ">
@@ -59,8 +62,8 @@ const SignIn = () => {
                   <input onChange={handleChange} value={inputs.email}  type="email" name="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring--600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@example.com" required=""></input>
                 </div>
                 <div>
-                  <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">username</label>
-                  <input onChange={handleChange} value={inputs.username} type="username" name="username" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring--600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="exaple123" required=""></input>
+                  <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+                  <input onChange={handleChange} value={inputs.username} type="username" name="username" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring--600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Create your Username" required=""></input>
                 </div>
                 <div>
                   <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
