@@ -6,6 +6,7 @@ import {
 import StreetViewComponent from './StreetViewComponent'
 import { useEffect,useState } from 'react';
 import axios from "axios";
+import LoadingButton from './ui/LoadingButtton/LoadingButton';
 
 function FetchApi(props) {
   const [post, setPost] = useState({lat:20.4446079,lng:78.328204});
@@ -16,6 +17,8 @@ function FetchApi(props) {
   const [XP, setXP] = useState(0);
   const [userInfo , setUserInfo] = useState("");
   const [user, setUser] = useState("");
+  const [loader , setLoader] = useState(true);
+  const [infoLoad , setInfoLoad] = useState(false);
   const API_KEY = 'AIzaSyB3eLBsPOBMRmj-NKNHQC3Gc98UiKJr2oU';
   const finalDistance=0;
   let accuracy1 = 0;
@@ -111,8 +114,15 @@ function FetchApi(props) {
           console.log(error);
         }
       }
+
+      useEffect(() => {
+        const loading = setTimeout(loadingEffect, 3000);
+        function loadingEffect(){
+          setLoader(false);
+        }
+      })
   if(!result){
-    return (
+    return ( loader ? <LoadingButton/> :
       <div>
         <APIProvider apiKey={API_KEY}>
             <div style={{position:'absolute',zIndex:'10', height: "50vh", width: "70vh" }} >
@@ -128,6 +138,7 @@ function FetchApi(props) {
                 <button type='button' onClick={() => {
                   handleStateChange(post,marker,finalDistance)
                   setResult(true);
+                  setLoader(true);
                 }} className='flex tems-center justify-center bg-green-400 m-auto px-24 py-1 rounded-xl font-link text-stone-100 text-2xl'>Guess</button>
               </div>
             </div>
@@ -137,7 +148,7 @@ function FetchApi(props) {
     )
   }
   else{
-    return(
+    return( loader ? <LoadingButton/> :
       <>
       <div className='h-screen bg-slate-200 mx-0'>
         <APIProvider apiKey={API_KEY}>

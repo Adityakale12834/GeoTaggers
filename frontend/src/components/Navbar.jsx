@@ -1,12 +1,14 @@
 import { Link, Outlet } from "react-router-dom"
 import Card from "./Card";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { authActions } from "../redux/store";
+import LoadingButton from "./ui/LoadingButtton/LoadingButton"
 axios.defaults.withCredentials = true;
 
 function Navbar(props) {
+  const [loader , setLoader] = useState(false);
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
   const sendLogoutReq = async () => {
@@ -21,7 +23,13 @@ function Navbar(props) {
   const handleLogout = () => {
     sendLogoutReq().then(() => dispatch(authActions.logout()));
   };
-      return <div><div className="grid grid-cols-3">
+  useEffect(() => {
+    const loading = setTimeout(getLoading, 2000);
+    function getLoading() {
+      setLoader(true);
+    }
+  },[]);
+      return !loader ? <LoadingButton/> : <div><div className="grid grid-cols-3">
       <div className=" text-4xl font-link text-gray-300 mt-20 ml-20 row-span-3">
           <div className='transition ease-in-out py-5 px-10 hover:text-purple-500'>
           <Link to="/singleplayer" >SINGLEPLAYER</Link>
@@ -30,7 +38,7 @@ function Navbar(props) {
           <Link to="/">MULTIPLAYER</Link>
           </div>
           <div className='py-5 px-10 transition ease-in-out hover:text-purple-500'>
-          <Link to="/">CLASSIC MAPS</Link>
+          <Link to="/country">CLASSIC MAPS</Link>
           </div>
           <hr className="w-80 border-1 py-3"/>
           <div className='py-5 px-10 transition ease-in-out hover:text-purple-500'>

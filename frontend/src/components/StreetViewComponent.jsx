@@ -1,7 +1,9 @@
 // StreetViewComponent.js
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+// import LoadingButton from './ui/LoadingButtton/LoadingButton';
 
 const StreetViewComponent = ({ apiKey, position }) => {
+  // const [loader, setLoader] = useState(false);
   useEffect(() => {
     const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&loading=async&callback=initStreetView`;
@@ -20,6 +22,10 @@ const StreetViewComponent = ({ apiKey, position }) => {
     };
 
     document.head.appendChild(script);
+    // setTimeout(loaderfunction, 3000);
+    // function loaderfunction(){
+    //   setLoader(false);
+    // }
 
     return () => {
       delete window.initStreetView;

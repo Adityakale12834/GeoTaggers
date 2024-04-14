@@ -11,6 +11,8 @@ import SignIn from './components/SignIn';
 axios.defaults.withCredentials = true;
 let firstRender = true;
 import axios from "axios";
+import LoadingButton from './components/ui/LoadingButtton/LoadingButton.jsx';
+import Country from './components/CountryMode/Country.jsx';
 
 function App() {
   const [user, setUser] = useState("");
@@ -50,9 +52,11 @@ function App() {
         <Route path="/home" element={<Navbar id={user} />} />
         <Route path="/singleplayer" element={<FetchApi user={user} />} />
         <Route path="/Login" element={< Login />} />
+        <Route path="/country" element={< Country />} />
         <Route path="/" element={< SignIn />} />
         <Route path="/Quizz" element={< Quizz />} />
         <Route path="/profile" element={<PlayerInfo username={user} />} />
+        <Route path="/loader" element={<LoadingButton />} />
       </Routes>
     </>
   )

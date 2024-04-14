@@ -32,12 +32,12 @@ function PlayerInfo(props) {
                 <div className="col-span-3 h-4/6 row-span-6 mt-24 font-link pl-6 text-gray-200">
                     <div>
                         <p className="text-sm font-bold"></p>
-                        <h1 className="text-3xl font-bold">{props.username.username}</h1>
+                        <h1 className="text-3xl font-bold">ADITYA KALE</h1>
                         <div className="py-8">
                         <label className="text-xl p-5">LVL 3</label>
                         <progress id="file" value="60" max="100" className=""> 50% </progress>
                         </div>
-                        <h1 className="">XP </h1>
+                        <h1 className="">XP 3000</h1>
                     </div>
                     <hr className="w-96 h-1 my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"/>
                 </div>
@@ -50,25 +50,25 @@ function PlayerInfo(props) {
                         <div className="my-10 p-10 bg-gray-700 flex justify-center mx-20">
                             <div>
                                 <div className="flex justify-center">
-                                <h1>6</h1>
+                                <h1>90%</h1>
                                 </div>
-                            <h2>completed games</h2>
+                            <h2>ACCURACY</h2>
                             </div>
                         </div>
                         <div className="my-10 p-10 bg-gray-700 flex justify-center mx-20">
                             <div>
                                 <div className="flex justify-center">
-                                <h1>6</h1>
+                                <h1>3000</h1>
                                 </div>
-                            <h2>completed games</h2>
+                            <h2>XP</h2>
                             </div>
                         </div>
                         <div className="my-10 p-10 bg-gray-700 flex justify-center mx-20">
                             <div>
                                 <div className="flex justify-center">
-                                <h1>6</h1>
+                                <h1>300 KM</h1>
                                 </div>
-                            <h2>completed games</h2>
+                            <h2>AVERAGE DISTANCE</h2>
                             </div>
                         </div>
                     </div>
